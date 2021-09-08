@@ -1,0 +1,739 @@
+/*=============================================================================
+GENERAL
+=============================================================================*/
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p { margin: 0; }
+a, button, .btn, a.btn {
+	-webkit-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
+}
+.ox-scroll { overflow-x: scroll; }
+.oy-scroll { overflow-y: scroll; }
+.ox-hiden { overflow-x: hidden; }
+.oy-hidden { overflow-y: hidden; }
+.va-middle { vertical-align: middle; }
+.rounded-lg { border-radius: 15px !important; }
+.rounded-xl { border-radius: 30px !important; }
+.rounded-xxl { border-radius: 100px !important; }
+.border-top-right-0 { border-top-right-radius: 0 !important; }
+.border-top-left-0 { border-top-left-radius: 0 !important; }
+.border-bottom-right-0 { border-bottom-right-radius: 0 !important; }
+.border-bottom-left-0 { border-bottom-left-radius: 0 !important; }
+/*.has-error [data-fv-for="sectors[]"] { display: block !important; }*/
+.has-error [style=""] { display: block !important; }
+.has-error .form-control { border-color: #dc3545; }
+.has-error .help-block { color: #dc3545; }
+.has-success .form-control, .has-success button.dropdown-toggle { border-color: #28a745; }
+.p-relative { position: relative; }
+.p-absolute { position: absolute; }
+.container-custom { width: 100%; margin: 0 auto; padding: 0 1rem; position: relative; }
+.nb-container { width: 100%; max-width: 100%; }
+.o-hidden { overflow: hidden; }
+.fw-100 { font-weight: 100; }
+.fw-200 { font-weight: 200; }
+.fw-300 { font-weight: 300; }
+.fw { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.h1-bigger { font-size: 4rem; }
+.h2-bigger { font-size: 3.5rem; }
+.h3-bigger { font-size: 3.25rem; }
+.h4-bigger { font-size: 3rem; }
+.h5-bigger { font-size: 2.75rem; }
+.h6-bigger { font-size: 2.5rem; }
+/*=============================================================================
+MARGIN
+=============================================================================*/
+.mt-30 { margin-top: 2rem; }
+.mt-45 { margin-top: 2.85rem; }
+.mt-60 { margin-top: 4rem; }
+.mb-30 { margin-bottom: 2rem; }
+.mb-45 { margin-bottom: 2.85rem; }
+.mb-60 { margin-bottom: 4rem; }
+.ml-30 { margin-left: 2rem; }
+.ml-45 { margin-left: 2.85rem; }
+.ml-60 { margin-left: 4rem; }
+.mr-30 { margin-right: 2rem; }
+.mr-45 { margin-right: 2.85rem; }
+.mr-60 { margin-right: 4rem; }
+.my-15 { margin: 1rem 0; }
+.my-30 { margin: 2rem 0; }
+.my-45 { margin: 2.85rem 0; }
+.my-60 { margin: 4rem 0; }
+.mx-15 { margin: 0 1rem; }
+.mx-30 { margin: 0 2rem; }
+.mx-45 { margin: 0 2.85rem; }
+.mx-60 { margin: 0 4rem; }
+/*=============================================================================
+PADDING
+=============================================================================*/
+.pt-30 { padding-top: 2rem; }
+.pt-45 { padding-top: 2.85rem; }
+.pt-60 { padding-top: 4rem; }
+.pb-30 { padding-bottom: 2rem; }
+.pb-45 { padding-bottom: 2.85rem; }
+.pb-60 { padding-bottom: 4rem; }
+.pl-30 { padding-left: 2rem; }
+.pl-45 { padding-left: 2.85rem; }
+.pl-60 { padding-left: 4rem; }
+.pr-30 { padding-right: 2rem; }
+.pr-45 { padding-right: 2.85rem; }
+.pr-60 { padding-right: 4rem; }
+.py-15 { padding: 1rem 0; }
+.py-30 { padding: 2rem 0; }
+.py-45 { padding: 2.85rem 0; }
+.py-60 { padding: 4rem 0; }
+.px-15 { padding: 0 1rem; }
+.px-30 { padding: 0 2rem; }
+.px-45 { padding: 0 2.85rem; }
+.px-60 { padding: 0 4rem; }
+/*=============================================================================
+FULL COVER - FULL SLIDER
+=============================================================================*/
+.cover {
+	height: calc( 85vh - 100px );
+	min-height: 300px;
+	background: no-repeat center center scroll;
+	background-size: cover;
+}
+.full-carousel .carousel-item {
+	height: 100vh;
+	min-height: 600px;
+	background: no-repeat center center scroll;
+	background-size: cover;
+}
+/*=============================================================================
+HOVER EFFECT (LIKE WORDPRESS) ON IMAGES
+=============================================================================*/
+.wp-effect {
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+	background-color: #000;
+	-webkit-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+}
+.wp-effect > img {
+	-webkit-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+	position: relative;
+	z-index: 1;
+}
+.wp-effect:hover > img {
+	opacity: .85;
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
+}
+.wp-effect .wp-text {
+	position: absolute;
+	text-align: center;
+	z-index: 2;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+@media( max-width: 576px) {
+	.wp-effect > img {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+}
+/*=============================================================================
+Z INDEX y BORDERS
+=============================================================================*/
+.zi-2 { position: relative; z-index: 2; }
+.zi-3 { z-index: 3; }
+.zi-4 { z-index: 4; }
+.zi-5 { z-index: 5; }
+.border-r { border-right: 1px solid transparent; }
+.border-l { border-left: 1px solid transparent; }
+.border-b { border-bottom: 1px solid transparent; }
+.border-t { border-top: 1px solid transparent; }
+/*=============================================================================
+BTN ANIMATIONS
+=============================================================================*/
+.btn-animated span.btn-text { position: relative; pointer-events: none; }
+.btn-animated {
+	border: unset;
+	position: relative;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: inline-block;
+}
+.btn-animated:hover::before { --size: 400px; text-decoration: none; }
+.btn-animated::before {
+	--size: 0;
+	content: '';
+	position: absolute;
+	left: var(--x);
+	top: var(--y);
+	width: var(--size);
+	height: var(--size);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+	-webkit-transform-origin: center;
+	-ms-transform-origin: center;
+	    transform-origin: center;
+	-webkit-transition: width .2s ease, height .2s ease;
+	-o-transition: width .2s ease, height .2s ease;
+	transition: width .2s ease, height .2s ease;
+}
+/*=============================================================================
+GALLERY
+=============================================================================*/
+.gallery-control {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.gallery-control [data-dir] {
+	width: 40px;
+  height: 40px;
+	position: absolute; cursor: pointer;
+  background-color: #FFF;
+  border-radius: 25px;
+  border: 4px solid #aaa;
+  opacity: .4;
+  text-align: center;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+.gallery-control [data-dir]:hover { opacity: .8; }
+.gallery-control [data-dir="left"] { left: 1rem; }
+.gallery-control [data-dir="right"] { right: 1rem; }
+/*=============================================================================
+CAROUSEL FADE
+=============================================================================*/
+.carousel-fade .carousel-item {
+ opacity: 0;
+ -webkit-transition-duration: 1s;
+      -o-transition-duration: 1s;
+         transition-duration: 1s;
+ -webkit-transition-property: opacity;
+ -o-transition-property: opacity;
+ transition-property: opacity;
+}
+.carousel-fade  .carousel-item.active,
+.carousel-fade  .carousel-item-next.carousel-item-left,
+.carousel-fade  .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-right {
+ opacity: 0;
+}
+.carousel-fade  .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-prev {
+ -webkit-transform: translateX(0) translate3d(0, 0, 0);
+ -ms-transform: translateX(0) translate3d(0, 0, 0);
+ transform: translateX(0) translate3d(0, 0, 0);
+}
+/*=============================================================================
+CAROUSEL - CIRCLE INDICATORS
+=============================================================================*/
+/**
+ * Carousel with Circle indicator
+ * it needs to add <div class="inner-circle"></div> on li elements
+ * (carousel-indicator)
+ */
+.circle-indicators .carousel-indicators li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-top: 3px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0);
+	border-radius: 10px;
+	background-color: #FFF;
+	border: none;
+}
+.circle-indicators .carousel-indicators .active {
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  margin-top: 0;
+  margin-bottom: -2px;
+  border: 1px solid #FFF;
+}
+.circle-indicators .carousel-indicators li.active .inner-circle { display: block; }
+.circle-indicators .inner-circle {
+	width: 8px;
+	height: 8px;
+	border-radius: 12px;
+	margin: 4px;
+	background-color: #FFF;
+	display: none;
+}
+.dark-indicators.circle-indicators .carousel-indicators li {
+	background-color: rgba(0,0,0,0);
+	background-color: #000;
+}
+.dark-indicators.circle-indicators .carousel-indicators .active {
+  background-color: transparent;
+  border: 1px solid #000;
+}
+.dark-indicators.circle-indicators .inner-circle {
+	background-color: #000;
+}
+/**
+ * Carousel with Circle indicator
+ * it needs to add <div class="inner-square"></div> on li elements
+ * (carousel-indicator)
+ */
+.square-indicators .carousel-indicators li {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-top: 0;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: #FFF;
+	border: none;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	opacity: 1;
+}
+.square-indicators .carousel-indicators .active {
+  width: 15px;
+  height: 15px;
+  background-color: #FFF;
+  margin-top: 0;
+  margin-bottom: -2px;
+}
+.square-indicators .carousel-indicators li.active .inner-square { display: block; }
+.square-indicators .inner-square {
+	width: 15px;
+	height: 15px;
+	background-color: #FFF;
+	display: none;
+}
+/**
+ * Carousel with Full Circle indicator
+ * it needs to add <div class="inner-full-circle"></div> on li elements
+ * (carousel-indicator)
+ */
+.full-circle-indicators .carousel-indicators li {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-top: 0;
+	text-indent: -999px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-ms-border-radius: 100%;
+	-o-border-radius: 100%;
+	opacity: 1;
+}
+.full-circle-indicators .carousel-indicators .active {
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  margin-top: 0;
+	margin-bottom: -2px;
+	border-radius: 100%;
+}
+.full-circle-indicators .carousel-indicators li.active .inner-square { display: block; border-radius: 100%; }
+.full-circle-indicators .inner-square {
+	width: 12px;
+	height: 12px;
+	background-color: transparent;
+	display: none;
+}
+
+/* Carousel with cards */
+	@media (max-width: 768px) {
+	    .carousel-with-cards .carousel-inner .carousel-item > div {
+	        display: none;
+	    }
+	    .carousel-with-cards .carousel-inner .carousel-item > div:first-child {
+	        display: block;
+	    }
+	}
+
+	.carousel-with-cards .carousel-inner .carousel-item.active,
+	.carousel-with-cards .carousel-inner .carousel-item-next,
+	.carousel-with-cards .carousel-inner .carousel-item-prev {
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	}
+
+	/* display 3 */
+	@media (min-width: 768px) {
+
+	    .carousel-with-cards .carousel-inner .carousel-item-right.active,
+	    .carousel-with-cards .carousel-inner .carousel-item-next {
+	      -webkit-transform: translateX(33.33333333%);
+	          -ms-transform: translateX(33.33333333%);
+	              transform: translateX(33.33333333%);
+	    }
+
+	    .carousel-with-cards .carousel-inner .carousel-item-left.active,
+	    .carousel-with-cards .carousel-inner .carousel-item-prev {
+	      -webkit-transform: translateX(-33.33333333%);
+	          -ms-transform: translateX(-33.33333333%);
+	              transform: translateX(-33.33333333%);
+	    }
+	}
+
+	.carousel-with-cards .carousel-inner .carousel-item-right,
+	.carousel-with-cards .carousel-inner .carousel-item-left{
+	  -webkit-transform: translateX(0);
+	      -ms-transform: translateX(0);
+	          transform: translateX(0);
+	}
+/* Carousel with cards */
+
+.down-indicators { padding-bottom: 48px; }
+/*=============================================================================
+CAROUSEL INDICATORS - POSITION RIGHT
+=============================================================================*/
+.lateral-indicators .carousel-indicators {
+	width: auto;
+	height: 20px;
+	top: 50%;
+	right: 0;
+	margin: unset;
+	left: auto;
+	transform: translateY(-50%) rotate(90deg);
+	-webkit-transform: translateY(-50%) rotate(90deg);
+	-moz-transform: translateY(-50%) rotate(90deg);
+	-ms-transform: translateY(-50%) rotate(90deg);
+	-o-transform: translateY(-50%) rotate(90deg);
+}
+.lateral-indicators .carousel-indicators li {
+	display: block;
+}
+/*=============================================================================
+Menu Toggler Position
+=============================================================================*/
+/*
+	Para que funcione la animación de slide, debemos hacer lo siguiente:
+
+	1.- Encerrar el menú en el contenedor apropiado
+		RIGHT: <div class="menu-container fixed-top toggler-animation toggler-slide-right"></div>
+		LEFT: <div class="menu-container fixed-top toggler-animation toggler-slide-left"></div>
+
+	2.- Encerrar todo el contenido en el contenedor: <div class="content-container"></div>
+
+	3.- Importar el script:
+		<script src="assets/js/menu-toggler-animate.js"></script>
+
+	El script asignará las clases apropiadas para adaptar la animación al estilo seleccionado
+*/
+.toggler-slide-right .navbar-toggler,
+.toggler-slide-left .navbar-toggler { position: absolute; }
+.toggler-slide-right .navbar-toggler { right: 1rem; }
+.toggler-slide-left .navbar-toggler { left: 1rem; }
+
+.content-container { position: relative; }
+.content-container.left {
+	left: 0;
+	-webkit-transition: left 500ms ease-in-out;
+	-o-transition: left 500ms ease-in-out;
+	transition: left 500ms ease-in-out;
+}
+.content-container.left.open-left {
+	left: 75%;
+	-webkit-transition: left 300ms ease-in-out;
+	-o-transition: left 300ms ease-in-out;
+	transition: left 300ms ease-in-out;
+}
+.content-container.right {
+	right: 0;
+	-webkit-transition: right 500ms ease-in-out;
+	-o-transition: right 500ms ease-in-out;
+	transition: right 500ms ease-in-out;
+}
+.content-container.right.open-right {
+	right: 75%;
+	-webkit-transition: right 300ms ease-in-out;
+	-o-transition: right 300ms ease-in-out;
+	transition: right 300ms ease-in-out;
+}
+body.menu-slide-animation { overflow-x: hidden; }
+body.menu-slide-animation.open { overflow: hidden; }
+@media (max-width: 992px) {
+	.toggler-slide-right .navbar-collapse,
+	.toggler-slide-left .navbar-collapse {
+	  position: fixed;
+	  top: 50px;
+	  padding-left: 15px;
+	  padding-right: 15px;
+	  padding-bottom: 15px;
+	  width: 75%;
+	  height: 100%;
+	}
+
+	/*left*/
+		.toggler-slide-left .navbar-collapse { left: 0; }
+		.toggler-slide-left .navbar-collapse.collapsing {
+			top: var(--nb-top);
+		  left: -75%;
+		  -webkit-transition: height 0s ease;
+		  -o-transition: height 0s ease;
+		  transition: height 0s ease;
+		}
+		.toggler-slide-left .navbar-collapse.show {
+			top: var(--nb-top);
+		  left: 0;
+		  -webkit-transition: left 300ms ease-in-out;
+		  -o-transition: left 300ms ease-in-out;
+		  transition: left 300ms ease-in-out;
+		}
+		.toggler-slide-left .navbar-toggler.collapsed ~ .navbar-collapse {
+		  -webkit-transition: left 500ms ease-in-out;
+		  -o-transition: left 500ms ease-in-out;
+		  transition: left 500ms ease-in-out;
+		}
+	/*left*/
+
+	/*right*/
+		.toggler-slide-right .navbar-collapse { right: 0; }
+		.toggler-slide-right .navbar-collapse.collapsing {
+			top: var(--nb-top);
+		  right: -75%;
+		  -webkit-transition: height 0s ease;
+		  -o-transition: height 0s ease;
+		  transition: height 0s ease;
+		}
+		.toggler-slide-right .navbar-collapse.show {
+			top: var(--nb-top);
+		  right: 0;
+		  -webkit-transition: right 300ms ease-in-out;
+		  -o-transition: right 300ms ease-in-out;
+		  transition: right 300ms ease-in-out;
+		}
+		.toggler-slide-right .navbar-toggler.collapsed ~ .navbar-collapse {
+		  -webkit-transition: right 500ms ease-in-out;
+		  -o-transition: right 500ms ease-in-out;
+		  transition: right 500ms ease-in-out;
+		}
+	/*right*/
+}
+/*=============================================================================
+Toggler Animation from bars to cross
+=============================================================================*/
+/*
+	Para aplicar correctamente la animación, se debe agregar la clase .collapsed
+	al boton con la clase .navbar-toggler quedando el HTML tal que así:
+	<button class="navbar-toggler collapsed" ...>
+
+	Y reemplazar el div que proporciona Bootstrap  por las siguientes líneas:
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+
+	Elemento a reemplazar:
+		<span class="navbar-toggler-icon"></span>
+*/
+.toggler-animation .navbar-toggler {
+  background: none;
+  border: none;
+}
+.toggler-animation .navbar-toggler:active,
+.toggler-animation .navbar-toggler:focus {
+  outline: 0;
+}
+.toggler-animation .navbar-toggler .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  margin: 4px 0 4px 0;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.toggler-animation.navbar-dark .navbar-toggler .icon-bar {
+  background: #ffffff;
+}
+.toggler-animation .navbar-toggler .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transform-origin: 10% 10%;
+      -ms-transform-origin: 10% 10%;
+          transform-origin: 10% 10%;
+}
+.toggler-animation .navbar-toggler .icon-bar:nth-of-type(2) {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.toggler-animation .navbar-toggler .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: 10% 90%;
+      -ms-transform-origin: 10% 90%;
+          transform-origin: 10% 90%;
+}
+.toggler-animation .navbar-toggler.collapsed .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(0);
+      -ms-transform: rotate(0);
+          transform: rotate(0);
+}
+.toggler-animation .navbar-toggler.collapsed .icon-bar:nth-of-type(2) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.toggler-animation .navbar-toggler.collapsed .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(0);
+      -ms-transform: rotate(0);
+          transform: rotate(0);
+}
+/*=============================================================================
+reCaptcha v3
+=============================================================================*/
+.grecaptcha-badge { display: none; visibility: hidden; opacity: 0; position: absolute; z-index: -10000; }
+/*=============================================================================
+MEDIA
+=============================================================================*/
+/* 1920 x 1080 */
+@media( max-width: 1920px ) {
+	.full-carousel .carousel-item, .cover { min-height: 700px; }
+}
+
+/* 1600 x 900*/
+@media( max-width: 1600px ) {
+	.full-carousel .carousel-item, .cover { min-height: 600px; }
+}
+
+/* 1440 x 900 */
+@media( max-width: 1440px ) {
+}
+
+/* 1280 x 800 */
+@media( min-width: 1200px ) { .container-custom, .nb-container { width: 1200px !important; max-width: 1200px !important; } }
+@media( max-width: 1280px ) {
+	.full-carousel .carousel-item, .cover { min-height: 500px; }
+}
+
+/* 990 x 1000 */
+@media( max-width: 990px ) {
+	.full-carousel .carousel-item, .cover { min-height: 400px; }
+
+	h1, .h1 { font-size: 2rem; }
+	h2, .h2 { font-size: 1.625rem; }
+	h3, .h3 { font-size: 1.25rem; }
+	h4, .h4 { font-size: 1rem; }
+	h5, .h5 { font-size: .875rem; }
+	h6, .h6 { font-size: .7rem; }
+	.h1-bigger { font-size: 3rem; }
+	.h2-bigger { font-size: 2.5rem; }
+	.h3-bigger { font-size: 2.25rem; }
+	.h4-bigger { font-size: 2rem; }
+	.h5-bigger { font-size: 1.75rem; }
+	.h6-bigger { font-size: 1.5rem; }
+
+	.mt-30 { margin-top: 1rem; }
+	.mb-30 { margin-bottom: 1rem; }
+	.ml-30 { margin-left: 1rem; }
+	.mr-30 { margin-right: 1rem; }
+	.mt-60, .mt-45 { margin-top: 2rem; }
+	.mb-60, .mb-45 { margin-bottom: 2rem; }
+	.ml-60, .ml-45 { margin-left: 2rem; }
+	.mr-60, .mr-45 { margin-right: 2rem; }
+	.my-30, .my-45 { margin: 1rem 0; }
+	.my-60 { margin: 2rem 0; }
+	.mx-30 { margin: 0 1rem; }
+	.mx-60, .mx-45 { margin: 0 2rem; }
+
+
+	.pt-45 { padding-top: 2.85rem; }
+	.pb-45 { padding-bottom: 2.85rem; }
+	.pl-45 { padding-left: 2.85rem; }
+	.pr-45 { padding-right: 2.85rem; }
+	.py-45 { padding: 2.85rem 0; }
+	.px-45 { padding: 0 2.85rem; }
+
+	.pt-30 { padding-top: 1rem; }
+	.pb-30 { padding-bottom: 1rem; }
+	.pl-30 { padding-left: 1rem; }
+	.pr-30 { padding-right: 1rem; }
+	.pt-60, .pt-45 { padding-top: 2rem; }
+	.pb-60, .pb-45 { padding-bottom: 2rem; }
+	.pl-60, .pl-45 { padding-left: 2rem; }
+	.pr-60, .pr-45 { padding-right: 2rem; }
+	.py-30 { padding: 1rem 0; }
+	.py-60, .py-45 { padding: 2rem 0; }
+	.px-30 { padding: 0 1rem; }
+	.px-60, .px-45 { padding: 0 2rem; }
+}
+
+/* 767 x 414 */
+@media( max-width: 767px ) {
+	h1, .h1 { font-size: 1.625rem; }
+	h2, .h2 { font-size: 1.25rem; }
+	h3, .h3 { font-size: 1rem; }
+	h4, .h4 { font-size: .875rem; }
+	h5, .h5 { font-size: .7rem; }
+	h6, .h6 { font-size: .6rem; }
+	.h1-bigger { font-size: 2.5rem; }
+	.h2-bigger { font-size: 2rem; }
+	.h3-bigger { font-size: 1.75rem; }
+	.h4-bigger { font-size: 1.5rem; }
+	.h5-bigger { font-size: 1.25rem; }
+	.h6-bigger { font-size: 1rem; }
+
+	.mt-60, .mt-45 { margin-top: 1rem; }
+	.mb-60, .mb-45 { margin-bottom: 1rem; }
+	.ml-60, .ml-45 { margin-left: 1rem; }
+	.mr-60, .mr-45 { margin-right: 1rem; }
+	.my-60, .my-45 { margin: 1rem 0; }
+	.mx-60, .mx-45 { margin: 0 1rem; }
+
+	.pt-60, .pt-45 { padding-top: 1rem; }
+	.pb-60, .pb-45 { padding-bottom: 1rem; }
+	.pl-60, .pl-45 { padding-left: 1rem; }
+	.pr-60, .pr-45 { padding-right: 1rem; }
+	.py-60, .py-45 { padding: 1rem 0; }
+	.px-60, .px-45 { padding: 0 1rem; }
+}
+
+/* 576 x 320 */
+@media( max-width: 576px ) {
+	.full-carousel .carousel-item, .cover { min-height: 300px; }
+	/*.h1-bigger { font-size: 2rem; }
+	.h2-bigger { font-size: 1.5rem; }
+	.h3-bigger { font-size: 1.25rem; }
+	.h4-bigger { font-size: 1rem; }
+	.h5-bigger { font-size: .8rem; }
+	.h6-bigger { font-size: .7rem; }*/
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 { font-size: 1.25rem; }
+	.h1-bigger,
+	.h2-bigger,
+	.h3-bigger,
+	.h4-bigger,
+	.h5-bigger,
+	.h6-bigger { font-size: 2rem; }
+}
