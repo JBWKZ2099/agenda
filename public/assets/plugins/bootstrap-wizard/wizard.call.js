@@ -36,7 +36,6 @@ $('#rootwizard .finish').click(function () {
     form_data = new FormData($('#formValidation')[0]);
     validator = $('#formValidation').data('formValidation').validate();
     spinner = `<i class="fa fa-spinner fa-spin me-2 ajax-spinner"></i>`;
-    method = $(`[name="_method"]`).val();
 
     if (validator.isValid()) {
         form_url = $("#formValidation").attr("action");
@@ -59,7 +58,12 @@ $('#rootwizard .finish').click(function () {
                 $(document).find(".ajax-spinner").remove();
                 $this.prop("disabled", false);
 
-                window.location.href = return_url;
+                if( resp.status=="success" )
+                    window.location.href = return_url;
+                else {
+                    $("#myModalAlertErrorAjax").modal("show");
+                    $("#myModalAlertErrorAjax .modal-body .h4").empty().append(resp.message)
+                }
             },
         });
         /*document.getElementById("formValidation").submit();*/

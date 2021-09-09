@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Schedule as MasterModel;
 use App\Models\Phone;
 use Redirect;
+use Session;
 use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
@@ -235,8 +236,6 @@ class ScheduleController extends Controller
     {
         $item = MasterModel::find($id);
 
-        dd( $request->all() );
-
         $requestAll = [
             "name" => $request->name,
             "email" => $request->email,
@@ -274,8 +273,15 @@ class ScheduleController extends Controller
         }
 
         if($item->save() && $item2){
+            if( $request->ajax() ) {
+                Session::flash('success', trans('module_'.$this->active.'.crud.update.success'));
+                return response()->json(["status"=>"success"]);
+            }
             return Redirect::route($this->active)->with('success', trans('module_'.$this->active.'.crud.update.success'));
         }else{
+            if( $request->ajax() ) {
+                return response()->json(["status"=>"error", "message"=>trans('module_'.$this->active.'.crud.update.error')]);
+            }
             return Redirect::back()->with('error', trans('module_'.$this->active.'.crud.update.error'));
         }
     }
