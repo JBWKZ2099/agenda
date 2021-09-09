@@ -48,7 +48,7 @@ $('#rootwizard .finish').click(function () {
             },
             processData: false,
             contentType: false,
-            type: method ? method : "POST",
+            type: "POST",
             dataType: "json",
             data: form_data,
             beforeSend: function() {

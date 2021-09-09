@@ -235,6 +235,8 @@ class ScheduleController extends Controller
     {
         $item = MasterModel::find($id);
 
+        dd( $request->all() );
+
         $requestAll = [
             "name" => $request->name,
             "email" => $request->email,
