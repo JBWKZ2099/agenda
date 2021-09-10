@@ -22,8 +22,8 @@ class StoredProcedureCreatePhones extends Migration
             )
 
             BEGIN
-                INSERT INTO `phones`(`id`, `schedule_id`, `phone`, `created_at`, `updated_at`, `deleted_at`) VALUES
-                ( NULL, schedule_id, phone, mytimestamps, mytimestamps, NULL );
+                INSERT INTO `phones`(`id`, `schedule_id`, `phone`, `created_at`, `updated_at`) VALUES
+                ( NULL, schedule_id, phone, mytimestamps, mytimestamps );
             END
         ";
 

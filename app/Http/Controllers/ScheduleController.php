@@ -121,48 +121,42 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $requestAll = [
-            "name" => $request->name,
-            "email" => $request->email,
-            "phone" => $request->phone,
-            "address" => $request->address,
-        ];
+        try {
+            DB::beginTransaction();
 
-        /* Store schedule */
-        /*DB::statement("TRUNCATE schedules");*/
-        /*DB::statement("TRUNCATE phones");*/
-        $item = MasterModel::create($requestAll);
-        $item2 = true;
-        $item3 = 0;
+            $timestamp = date("Y-m-d H:i:s");
 
-        /* Store phones */
-        $phones = $request->phones;
+            /*Stored Procedure to save schedule data*/
+            $item = DB::select("
+                CALL createContact('".$request->name."' ,'".$request->email."' ,'".$request->phone."' ,'".$request->address."', '".$timestamp."')
+            ");
+            /*Stored Procedure to get last schedule id*/
 
-        if( $phones ) {
-            ksort($phones);
+            /*Get last schedule id*/
+            $last_id = DB::select("CALL getLastScheduleId()")[0]->id;
 
-            foreach( $phones as $phone ) {
-                $requestAll2 = [
-                    "schedule_id" => $item->id,
-                    "phone" => $phone,
-                ];
+            /* Store phones */
+            $phones = $request->phones;
 
-                $item_phone = Phone::create($requestAll2);
+            if( $phones ) {
+                ksort($phones);
 
-                if( !$item_phone )
-                    $item3++;
+                foreach( $phones as $phone ) {
+                    $item_phone = DB::select("
+                        CALL createPhone('".$last_id."', '".$phone."', '".$timestamp."')
+                    ");
+                }
             }
 
-            if( $item3>0 )
-                $item2 = false;
-        }
+            DB::commit();
 
-        if($item && $item2){
             if( $request->ajax() )
                 return response()->json(["status"=>"success", "message" => trans('module_'.$this->active.'.crud.create.success')]);
 
             return Redirect::route($this->active)->with('success', trans('module_'.$this->active.'.crud.create.success'));
-        }else{
+        } catch(Throwable $e) {
+            DB::rollback();
+
             if( $request->ajax() )
                 return response()->json(["status"=>"error", "message" => trans('module_'.$this->active.'.crud.create.error')]);
 
