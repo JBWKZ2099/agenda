@@ -150,6 +150,7 @@ class ScheduleController extends Controller
 
             DB::commit();
 
+            /* return */
             if( $request->ajax() )
                 return response()->json(["status"=>"success", "message" => trans('module_'.$this->active.'.crud.create.success')]);
 
@@ -157,6 +158,7 @@ class ScheduleController extends Controller
         } catch(Throwable $e) {
             DB::rollback();
 
+            /* return */
             if( $request->ajax() )
                 return response()->json(["status"=>"error", "message" => trans('module_'.$this->active.'.crud.create.error')]);
 
@@ -228,55 +230,48 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = MasterModel::find($id);
 
-        $requestAll = [
-            "name" => $request->name,
-            "email" => $request->email,
-            "phone" => $request->phone,
-            "address" => $request->address,
-        ];
+        try {
+            DB::beginTransaction();
 
-        $item->fill($requestAll);
-        $item2 = true;
-        $item3 = 0;
+            $timestamp = date("Y-m-d H:i:s");
 
-        /*Delete phones in case we update any of them*/
-        $del_phones = Phone::where("schedule_id", $item->id)->delete();
+            /*Stored Procedure to save schedule data*/
+            $item_update = DB::select("
+                CALL updateContact('".$id."', '".$request->name."' ,'".$request->email."' ,'".$request->phone."' ,'".$request->address."', '".$timestamp."')
+            ");
 
-        /* Store updated phones */
-        $phones = $request->phones;
+            /*Delete phones in case we update any of them*/
+            $item_update = DB::select("CALL deletePhone('".$id."')");
 
-        if( $phones ) {
-            ksort($phones);
+            /* Store phones */
+            $phones = $request->phones;
 
-            foreach( $phones as $phone ) {
-                $requestAll2 = [
-                    "schedule_id" => $item->id,
-                    "phone" => $phone,
-                ];
+            if( $phones ) {
+                ksort($phones);
 
-                $item_phone = Phone::create($requestAll2);
-
-                if( !$item_phone )
-                    $item3++;
+                foreach( $phones as $phone ) {
+                    $item_phone = DB::select("
+                        CALL createPhone('".$id."', '".$phone."', '".$timestamp."')
+                    ");
+                }
             }
 
-            if( $item3>0 )
-                $item2 = false;
-        }
+            DB::commit();
 
-        if($item->save() && $item2){
-            if( $request->ajax() ) {
-                Session::flash('success', trans('module_'.$this->active.'.crud.update.success'));
-                return response()->json(["status"=>"success"]);
-            }
-            return Redirect::route($this->active)->with('success', trans('module_'.$this->active.'.crud.update.success'));
-        }else{
-            if( $request->ajax() ) {
-                return response()->json(["status"=>"error", "message"=>trans('module_'.$this->active.'.crud.update.error')]);
-            }
-            return Redirect::back()->with('error', trans('module_'.$this->active.'.crud.update.error'));
+            /* return */
+            if( $request->ajax() )
+                return response()->json(["status"=>"success", "message" => trans('module_'.$this->active.'.crud.create.success')]);
+
+            return Redirect::route($this->active)->with('success', trans('module_'.$this->active.'.crud.create.success'));
+        } catch(Throwable $e) {
+            DB::rollback();
+
+            /* return */
+            if( $request->ajax() )
+                return response()->json(["status"=>"error", "message" => trans('module_'.$this->active.'.crud.create.error')]);
+
+            return Redirect::back()->with('error', trans('module_'.$this->active.'.crud.create.error'));
         }
     }
 

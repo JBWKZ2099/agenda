@@ -28,7 +28,7 @@ class DataTablesController extends Controller
             $rows = $full_model::dataDeleted();
         }
 
-        return DataTables::of($rows)
+        $dt = DataTables::of($rows)
             ->editColumn('created_at', '{!! \Carbon\Carbon::parse($created_at)->diffForHumans() !!}')
             ->addColumn('actions', function($row) use ($active, $view, $actions_value){
                 if($view == 'index'){
@@ -57,5 +57,7 @@ class DataTablesController extends Controller
             })
             ->rawColumns(['actions'])
             ->make(true);
+
+        return $dt;
     }
 }
