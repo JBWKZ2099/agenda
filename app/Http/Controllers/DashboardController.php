@@ -10,8 +10,6 @@ class DashboardController extends Controller
         $this->active = "dashboard";
         $this->word = "Dashboard";
         $this->compact = ['word', 'active'];
-
-        //Catalogs
     }
 
     public function index(){

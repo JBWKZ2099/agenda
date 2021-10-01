@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ScheduleRequest as MasterRequest;
 use App\Models\Schedule as MasterModel;
 use App\Models\Phone;
 use Redirect;
@@ -32,8 +33,6 @@ class ScheduleController extends Controller
         $this->exeptions = [
         ];
         $this->compact = ['word', 'word1', 'active', 'model', 'view', 'columns', 'select', 'actions'];
-
-        //Catalogs
     }
 
     public function columns()
@@ -119,7 +118,7 @@ class ScheduleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MasterRequest $request)
     {
         try {
             DB::beginTransaction();

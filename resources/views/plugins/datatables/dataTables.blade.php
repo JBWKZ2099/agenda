@@ -26,6 +26,7 @@
 	  },
 	  columns: final,
 	  language: { "url": language },
-	  "order": [[ 0, "desc" ]]
+	  order: [[ 0, "desc" ]],
+	  dom: "lftir"
 	});
 </script>
